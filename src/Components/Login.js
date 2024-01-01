@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
+import {checkValidData} from "../utills/validate";
 
 export default function Login() {
   const [isSignInForm, setSignInForm] = useState(true);
+
+const email=useRef(null)  
+
   const toggleSignInForm = () => {
     setSignInForm(!isSignInForm);
   };
+
+  const handleButtonClick=()=>{
+    //validate the form data
+   // checkValidData(email,password)
+  }
   return (
     <div>
       <Header />
@@ -40,7 +49,7 @@ export default function Login() {
           className="p-4 my-2 w-full bg-gray-700"
         />
 
-        <button className="p-4 my-4 bg-red-700 w-full rounded-lg">
+        <button className="p-4 my-4 bg-red-700 w-full rounded-lg" onClick={handleButtonClick}>
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p className="cursor-pointer font-bold" onClick={toggleSignInForm}>
