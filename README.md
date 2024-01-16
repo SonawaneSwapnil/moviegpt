@@ -8,6 +8,12 @@
 -Sign up Form
 -Form Validation
 --UserRef Hook
+-- using useref hook we can write custom hooks for valiation 
+--peforming validation using useref
+--Firebase SetUp
+--crreate signup user account
+--implement sign in user api
+--created  redux store with userslice
 
 
 #featured
