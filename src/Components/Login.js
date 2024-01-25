@@ -48,7 +48,7 @@ export default function Login() {
               dispatch(
                 addUser({ uid: uid, email: email, displayName: displayName })
               );
-              navigate("/browse");
+
               // Profile updated!
               // ...
             })
@@ -73,7 +73,7 @@ export default function Login() {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           navigate("/browse");
         })
         .catch((error) => {
