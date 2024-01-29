@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utills/validate";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,

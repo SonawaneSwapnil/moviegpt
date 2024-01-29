@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../utills/moviesSLice";
 import { useEffect } from "react";

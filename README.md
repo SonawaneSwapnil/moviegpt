@@ -29,7 +29,12 @@
 --update store trailer-
 emeb the you the youtube vedio make it autoplay
 --added tailwind classes
-
+--build secondary component
+--build movies list
+--build movies card
+--TMTB api img cdn
+made browse page amazing
+--use popular movies custom hooks
 
 #featured
 
@@ -45,7 +50,6 @@ emeb the you the youtube vedio make it autoplay
 -title and description
 -movie suggestion
 -movie list
-
-netflix gpt
+--netflix gpt
 -search bar
 -movie suggestion
