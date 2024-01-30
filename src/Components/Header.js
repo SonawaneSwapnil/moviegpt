@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utills/Firebase";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utills/userSlice";
 import { LOGO, USERAVTAR } from "../utills/constant";
+import { toggleGptSearchView } from "../utills/gptSlice";
 export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
+  console.log(user);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
@@ -34,21 +37,34 @@ export default function Header() {
         // ...
       }
     });
+
     return () => unsubscribe();
   }, []);
+  const handleGptClick = () => {
+    dispatch(toggleGptSearchView());
+  };
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black rounded-sm z-10 w-full flex flex justify-between">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black rounded-sm z-10  flex justify-between">
       <img className="w-44" src={LOGO} alt="logo" />
-      <div className="flex h-9">
-        <img src={USERAVTAR} alt="" />
-        <button
-          type=""
-          className=" font-bold text-white"
-          onClick={handleSignOut}
-        >
-          Sign Out
-        </button>
-      </div>
+      {user && (
+        <div className="flex p-2 justify-between">
+          <button
+            type=""
+            className="py-2 px-4 m-2 mt-2 text-white bg-purple-800"
+            onClick={handleGptClick}
+          >
+            GPT Search
+          </button>
+          <img src={USERAVTAR} alt="" />
+          <button
+            type=""
+            className=" font-bold text-white"
+            onClick={handleSignOut}
+          >
+            (Sign Out)
+          </button>
+        </div>
+      )}
     </div>
   );
 }
